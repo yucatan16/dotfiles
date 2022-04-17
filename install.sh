@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-mkdir -p $HOME/.zsh/completions
-cd ~/.zsh/completions
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-wget -O _git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+if [ ! -d $HOME/.zsh/completions ]; then
+  mkdir -p $HOME/.zsh/completions
+  cd ~/.zsh/completions
+  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+  wget -O _git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh 
+fi
 
 set -eux
 
