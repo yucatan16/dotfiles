@@ -1,0 +1,12 @@
+[user]
+	email = yukako1160101@gmail.com
+	name = yucatan16
+
+[alias]
+	s = status
+	co = checkout
+	br = branch
+	r = reset
+	lo = log --oneline
+	rl = reflog
+	
