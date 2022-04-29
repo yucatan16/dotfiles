@@ -10,3 +10,7 @@
 	lo = log --oneline
 	rl = reflog
 	
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
+[ghq]
+	root = ~/yukako

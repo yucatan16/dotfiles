@@ -40,3 +40,15 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 source $(brew --prefix nvm)/nvm.sh
 export PATH="$HOME/.embulk/bin:$PATH"
 export PATH="/usr/local/opt/python@3.8/libexec/bin:$PATH"
+
+peco-src () {
+    local repo=$(ghq list | peco --query "$LBUFFER")
+    if [ -n "$repo" ]; then
+        repo=$(ghq list --full-path --exact $repo)
+        BUFFER="cd ${repo}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
