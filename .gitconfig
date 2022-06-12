@@ -1,6 +1,6 @@
 [user]
-	email = yukako1160101@gmail.com
-	name = yucatan16
+	email = k335283.yukako@gmail.com
+	name = yucatty
 
 [alias]
 	s = status
@@ -12,5 +12,11 @@
 	
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+	insteadOf = https://github.com/
+
 [ghq]
-	root = ~/yukako
+root = ~/hobby
+
+[ghq "https://github.com/eure"]
+root = ~/work
+

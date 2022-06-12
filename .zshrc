@@ -3,7 +3,7 @@ ERROR=$'\U1F92E '
 PROMPT=%~"%(?.${DEFAULT}.${ERROR})"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH="~/.rbenv/shims:/usr/local/bin:$PATH"
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 eval "$(direnv hook zsh)"
 setopt nonomatch
 
@@ -28,19 +28,22 @@ fpath=(
 autoload -Uz compinit
 compinit
 
-export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
-export PATH=$HOME/.goenv/bin:$PATH
-eval "$(goenv init -)"
+# export GOENV_ROOT=$HOME/.goenv
+# export PATH=$GOENV_ROOT/bin:$PATH
+# export PATH=$HOME/.goenv/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
-source $(brew --prefix nvm)/nvm.sh
 export PATH="$HOME/.embulk/bin:$PATH"
 export PATH="/usr/local/opt/python@3.8/libexec/bin:$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# peco settings
 peco-src () {
     local repo=$(ghq list | peco --query "$LBUFFER")
     if [ -n "$repo" ]; then
@@ -52,3 +55,7 @@ peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+# eure settings
+alias ssm_port_forwarder.sh="$HOME/work/github.com/eure/utility-scripts/aws/gateway/ssm_port_forwarder.sh"
+alias ssm_gateway_connector.sh="$HOME/work/github.com/eure/utility-scripts/aws/gateway/ssm_gateway_connector.sh"
